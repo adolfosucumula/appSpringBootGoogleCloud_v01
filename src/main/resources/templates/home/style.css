@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Spring Boot & GCloud</title>
 
-    <style>
-        
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root{
@@ -62,24 +55,3 @@ header .navbar #title{
     font-size: 1.2rem;
     color: var(--color);
 }
-    </style>
-</head>
-<body>
-  <header>
-    <div class="navbar">
-        <h3 id="title">XCode</h3>
-    </div>
-  </header>
-
-  <section class="welcome">
-    <div class="container">
-        <div class="box">
-            <h3><span>Ola</span></h3>
-        </div>
-        <div class="box">
-            <h2><span>Mundo</span></h2>
-        </div>
-    </div>
-  </section>
-</body>
-</html>

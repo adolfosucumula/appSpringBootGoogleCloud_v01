@@ -1,0 +1,3 @@
+
+#Download dependencies from POM.xml
+mvn clean dependency:resolve
