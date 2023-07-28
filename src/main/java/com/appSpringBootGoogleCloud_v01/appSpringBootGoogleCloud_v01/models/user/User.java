@@ -1,14 +1,17 @@
 
-package com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models;
+package com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models.user;
 
 import java.util.Collection;
 
 import javax.persistence.*;
 
+import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models.BaseEntity;
+
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 import java.util.*;
 
@@ -16,13 +19,13 @@ import java.util.*;
 @Table(name = "users")
 public class User extends BaseEntity implements UserDetails{
 
-    @Column(name = "username")
+    @Column(name = "fullname")
     @NonNull
-    private String username;
+    private String fullname;
 
-    @Column(name = "email")
+    @Column(name = "login")
     @NonNull
-    private String email;
+    private String login;
 
     @Column(name = "password")
     @NonNull
@@ -31,29 +34,26 @@ public class User extends BaseEntity implements UserDetails{
     @Column(name = "status")
     private String status = "inactive";
 
-    private String login;
-
     private UserRole role;
 
-    public String getUserName(){
-        return this.username;
+    public String getFullname(){
+        return this.fullname;
     }
 
-    public void setUserName(String username){
-        this.login = username;
-        this.username = username;
+    public void setFullname(String fullname){
+        this.fullname = fullname;
     }
 
-    public String getEmail(){
-        return this.email;
+    public String getLogin(){
+        return this.login;
     }
 
-    public void setEmail(String email){
-        this.email = email;
+    public void setLogin(String login){
+        this.login = login;
     }
 
     public String getPassword(){
-        return this.username;
+        return this.password;
     }
 
     public void setPassword(String password){
@@ -66,6 +66,23 @@ public class User extends BaseEntity implements UserDetails{
 
     public void setStatus(String status){
         this.status = status;
+    }
+
+    public UserRole getRole(){
+        return this.role;
+    }
+
+    public void setRole(UserRole role){
+        this.role = role;
+    }
+
+    public User(){}
+
+    public User(String fullname, String login, String password, UserRole role){
+        this.fullname = fullname;
+        this.login = login;
+        this.password = password;
+        this.role = role;
     }
 
     @Override

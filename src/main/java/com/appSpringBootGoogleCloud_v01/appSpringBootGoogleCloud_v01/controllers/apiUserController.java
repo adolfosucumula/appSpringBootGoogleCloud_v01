@@ -1,7 +1,7 @@
 
 package com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.controllers;
 
-import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models.User;
+import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models.user.*;
 import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +45,8 @@ public class apiUserController{
     public String update(@PathVariable Long id, @RequestBody User entity){
         try{
             User update = userRep.findById(id).get();
-                update.setUserName(entity.getUsername());
-                update.setEmail(entity.getEmail());
+                update.setFullname(entity.getUsername());
+                update.setLogin(entity.getLogin());
                 update.setPassword(entity.getPassword());
                 update.setStatus(entity.getStatus());
 

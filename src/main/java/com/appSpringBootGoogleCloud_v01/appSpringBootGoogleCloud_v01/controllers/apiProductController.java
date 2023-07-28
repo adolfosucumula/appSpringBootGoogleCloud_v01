@@ -1,7 +1,7 @@
 package com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.controllers;
 
 import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.repositories.ProductRepository;
-import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models.Product;
+import com.appSpringBootGoogleCloud_v01.appSpringBootGoogleCloud_v01.models.product.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

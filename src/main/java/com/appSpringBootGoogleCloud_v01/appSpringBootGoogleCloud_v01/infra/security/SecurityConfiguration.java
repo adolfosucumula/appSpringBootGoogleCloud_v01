@@ -21,11 +21,20 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
-        .csrf(csrf -> csrf.disable())
-        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        //Defining the authorized http requests 
-        .authorizeHttpRequests(authorize -> authorize.antMatchers(HttpMethod.POST, "/product").hasAnyRole("ADMIN")
-        .anyRequest().authenticated()
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            
+            //Defining the authorized http requests 
+            .authorizeHttpRequests(authorize -> authorize
+            //Request function to authorize and avoid user to access the home, login and register page with no authentication 
+                
+                .antMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                //Request function to authorize to access Products when is authenticated
+                .antMatchers(HttpMethod.GET, "/find/{id}").authenticated()
+                .antMatchers(HttpMethod.POST, "/product").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/rest-api/user").authenticated()
+                //.anyRequest().authenticated()
         )
         .build();
     }
